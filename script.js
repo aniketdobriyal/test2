@@ -259,8 +259,10 @@ setInterval(() => {
 }, config.dayNightInterval);
 
 gameLoop();
+ 
+}
 
-   // Touch controls for mobile  /////////////////////////////////////////////////////////////////////////////////////
+  // Touch controls for mobile  /////////////////////////////////////////////////////////////////////////////////////
     const moveLeftButton = document.getElementById('moveLeft');
     const moveRightButton = document.getElementById('moveRight');
     const jumpButton = document.getElementById('jumpButton');
@@ -310,5 +312,3 @@ gameLoop();
       e.preventDefault();
       togglePause();
     });
-  
-}
