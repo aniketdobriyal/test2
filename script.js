@@ -65,7 +65,11 @@ function togglePause() {
   }
 }
 
-
+function resumeGame() {
+  paused = false;
+  pauseOverlay.style.display = 'none';
+  bgMusic.play();
+}
 
 
 function shoot(fromEnemy, shooterX = null, shooterY = null) {
