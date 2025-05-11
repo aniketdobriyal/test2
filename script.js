@@ -1,5 +1,7 @@
 // Get references to HTML elements
 
+function main()
+{
 const game = document.getElementById('game');
 const player = document.getElementById('player');
 const hud = document.getElementById('hud');
@@ -258,5 +260,8 @@ setInterval(() => {
 }, config.dayNightInterval);
 
 gameLoop();
+
+
+}
  
 
