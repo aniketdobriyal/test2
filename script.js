@@ -261,6 +261,57 @@ setInterval(() => {
 
 gameLoop();
 
+    // Touch controls for mobile  /////////////////////////////////////////////////////////////////////////////////////
+    const moveLeftButton = document.getElementById('moveLeft');
+    const moveRightButton = document.getElementById('moveRight');
+    const jumpButton = document.getElementById('jumpButton');
+    const shootButton = document.getElementById('shootButton');
+    const boostButton = document.getElementById('boostButton');
+    const pauseButton = document.getElementById('pauseButton');
+
+    moveLeftButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      keys.left = true;
+    });
+
+    moveRightButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      keys.right = true;
+    });
+
+    moveLeftButton.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      keys.left = false;
+    });
+
+    moveRightButton.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      keys.right = false;
+    });
+
+    jumpButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      if (jumpCount < config.maxJumps) {
+        velocityY = config.jumpVelocity;
+        jumpCount++;
+      }
+    });
+
+    shootButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      shoot(false);  // Shoot from the player
+    });
+
+    boostButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      activateSpeedBoost();
+    });
+
+    pauseButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      togglePause();
+    });
+      
 
 }
  
