@@ -216,6 +216,15 @@ body {
   outline: none;
 }
 
+#controls {
+  display: none; /* Hidden by default */
+}
+
+@media (max-width: 768px) {
+  #controls {
+    display: flex; /* Show controls on mobile view */
+  }
+}
 @media (max-width: 480px) {
   .overlayContent h1 { font-size: 32px; }
   .overlayContent p, .overlayContent button { font-size: 18px; }
