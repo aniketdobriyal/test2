@@ -1,4 +1,6 @@
 // Get references to HTML elements
+function main()
+{
 const game = document.getElementById('game');
 const player = document.getElementById('player');
 const hud = document.getElementById('hud');
@@ -133,6 +135,7 @@ function showGameOver() {
 }
 
 function gameLoop() {
+   paused ? bgMusic.pause() : bgMusic.play();
   if (paused) return setTimeout(() => requestAnimationFrame(gameLoop), 100); // Adds throttling when paused
 
   if (keys.right && playerX + player.offsetWidth < innerWidth) playerX += playerSpeed;
@@ -256,3 +259,5 @@ setInterval(() => {
 }, config.dayNightInterval);
 
 gameLoop();
+
+}
