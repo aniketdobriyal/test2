@@ -1,0 +1,218 @@
+:root {
+  --sky-color: #275669;
+  --ground-color: gray;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: sans-serif;
+  background: #222;
+  transition: background 2s;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#game {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: var(--sky-color);
+  transition: background 2s;
+  cursor: none;
+}
+
+#player {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #ff4444;
+  position: absolute;
+  left: 100px;
+  z-index: 5;
+  transition: background 0.3s;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 200%;
+  background: var(--ground-color);
+  z-index: 1;
+}
+
+.obstacle, .enemy, .powerup, .bullet, .gorge {
+  position: absolute;
+}
+
+.enemy, .powerup {
+  width: 40px;
+  height: 40px;
+  bottom: 100px;
+}
+
+.obstacle {
+  width: 180px;
+  height: 50px;
+}
+
+.obstacle img,
+.powerup img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.enemy { background: rgb(19, 19, 19); }
+.enemy-flying { background: orange; bottom: 200px !important; }
+.enemy-jumping { background: purple; animation: jump 1s infinite alternate; }
+.enemy-intelligent { background: green; }
+.enemy-boss {
+  background: darkred;
+  width: 60px;
+  height: 60px;
+}
+.enemy-shooter { background: yellow; }
+.enemy-patrolling { background: pink; }
+.enemy-exploding { background: cyan; }
+.enemy-shielded { background: darkblue; }
+.enemy-teleporting { background: violet; }
+.enemy-speed { background: lightgreen; }
+
+@keyframes jump {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-200px); }
+}
+
+.powerup {
+  width: 120px;
+  height: 120px;
+}
+
+.bullet {
+  width: 10px;
+  height: 5px;
+  background: cyan;
+}
+
+.gorge {
+  height: 100px;
+  width: 120px;
+  background: var(--sky-color);
+  bottom: 0;
+  z-index: 1;
+  transition: background 2s;
+}
+
+#hud {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  font-size: 18px;
+  z-index: 10;
+}
+
+.overlay {
+  cursor: default;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.85);
+  z-index: 25;
+  flex-direction: column;
+  color: white;
+}
+
+.overlayContent {
+  text-align: center;
+  background: #333;
+  padding: 30px 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #000;
+}
+
+.overlayContent h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.overlayContent p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.overlayContent button {
+  padding: 10px 30px;
+  font-size: 20px;
+  background: #ff4444;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index:0;
+}
+
+#controls button {
+  width: 70px;
+  height: 70px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.2); /* Transparent white background */
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4); /* Subtle border */
+  border-radius: 50%; /* Fully rounded */
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+#controls button:hover {
+  background-color: rgba(255, 255, 255, 0.4); /* Slightly more opaque on hover */
+}
+
+#controls button:active {
+  transform: scale(0.9); /* Slight scale effect when pressed */
+  background-color: rgba(255, 255, 255, 0.5); /* More opaque when pressed */
+}
+
+/* Position the "Arrow Up" button between Left and Right, and slightly above */
+#upBtn {
+  position: relative;
+  bottom: 10px; /* Move it slightly upwards */
+  font-size: 36px; /* Slightly larger to resemble the keyboard arrow size */
+}
+
+#leftBtn, #rightBtn {
+  font-size: 32px; /* Set arrow sizes for left and right */
+}
+
+.overlayContent button:hover,
+.overlayContent button:focus {
+  background: #ff2222;
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .overlayContent h1 { font-size: 32px; }
+  .overlayContent p, .overlayContent button { font-size: 18px; }
+  .overlayContent { padding: 20px 30px; }
+}
+
