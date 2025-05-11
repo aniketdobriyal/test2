@@ -55,10 +55,17 @@ document.addEventListener('keyup', e => {
 });
 
 function togglePause() {
-  paused = !paused;
-  pauseOverlay.style.display = paused ? 'flex' : 'none';
-  paused ? bgMusic.pause() : bgMusic.play();
+  if (paused) {
+    paused = false;
+    pauseOverlay.style.display = 'none';
+    bgMusic.play();
+  } else {
+    paused = true;
+    pauseOverlay.style.display = 'flex';
+    bgMusic.pause();
+  }
 }
+
 
 function resumeGame() {
   paused = false;
