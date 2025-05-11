@@ -67,11 +67,7 @@ function togglePause() {
 }
 
 
-function resumeGame() {
-  paused = false;
-  pauseOverlay.style.display = 'none';
-  bgMusic.play();
-}
+
 
 function shoot(fromEnemy, shooterX = null, shooterY = null) {
   const b = document.createElement('div');
@@ -314,14 +310,11 @@ gameLoop();
       activateSpeedBoost();
     });
 
-  pauseButton.addEventListener('touchstart', (e) => {
+pauseButton.addEventListener('touchstart', (e) => {
   e.preventDefault();
-  if (paused) {
-    resumeGame();  // ✅ handles unpausing and resuming audio/UI
-  } else {
-    togglePause(); // ✅ only pause when game is active
-  }
+  togglePause(); // this alone handles both pause and resume
 });
+
 
       
 
