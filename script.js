@@ -307,10 +307,15 @@ gameLoop();
       activateSpeedBoost();
     });
 
-    pauseButton.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      togglePause();
-    });
+  pauseButton.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  if (paused) {
+    resumeGame();  // ✅ handles unpausing and resuming audio/UI
+  } else {
+    togglePause(); // ✅ only pause when game is active
+  }
+});
+
       
 
 }
