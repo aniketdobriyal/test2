@@ -135,7 +135,7 @@ function showGameOver() {
 }
 
 function gameLoop() {
-   paused ? bgMusic.pause() : bgMusic.play();
+
   if (paused) return setTimeout(() => requestAnimationFrame(gameLoop), 100); // Adds throttling when paused
 
   if (keys.right && playerX + player.offsetWidth < innerWidth) playerX += playerSpeed;
