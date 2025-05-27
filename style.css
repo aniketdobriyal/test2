@@ -29,7 +29,8 @@ body {
 #game {
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: fixed;
+  left:0px;
   background: var(--sky-color);
   transition: background 2s;
   cursor: none;
