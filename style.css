@@ -13,6 +13,9 @@
   user-select: none;         /* Standard */
   -webkit-touch-callout: none; /* Disable long-press menu on iOS */
   -webkit-tap-highlight-color: transparent; /* Remove highlight on tap */
+  
+ overflow: hidden;
+
 }
 
 body {
